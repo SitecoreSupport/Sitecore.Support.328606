@@ -14,9 +14,9 @@
     {
       base.SetMessageHeaders(message);
 
-      if (!message.FromAddress.IsNullOrEmpty())
+      if (!message.FromAddress.IsNullOrEmpty()&&!message.FromName.IsNullOrEmpty())
       {
-        message.Headers.Set("Sender", message.FromAddress);
+        message.Headers.Set("Sender", message.FromName + "<"+message.FromAddress+">");
       }
     }
   }
